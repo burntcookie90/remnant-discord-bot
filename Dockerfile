@@ -40,4 +40,4 @@ ENV \
 
 COPY root/ /
 WORKDIR /app
-COPY --from=build /app/server/build/install/remnant-discord-bot ./
+COPY --from=build /app/remnant-discord-bot/build/install/remnant-discord-bot ./

@@ -4,4 +4,4 @@ services:
     build:
       context: .
     volumes:
-      - ./run/app:/data
+      - ./run/app:/app/data
