@@ -27,6 +27,7 @@ ENV \
     PGID="" \
     DISCORD_TOKEN=""
 
-COPY root/ /
+COPY root/cont-init.d /etc/
+COPY root/services.d /etc/
 WORKDIR /app
 COPY --from=build /app/build/install/remnant-discord-bot ./
