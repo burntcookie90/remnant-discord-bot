@@ -11,17 +11,6 @@ COPY src ./src
 
 RUN ./gradlew installDist
 
-FROM golang:alpine AS shell
-RUN apk add --no-cache shellcheck
-ENV GO111MODULE=on
-RUN apk add --no-cache git
-RUN go install mvdan.cc/sh/v3/cmd/shfmt@v3.6.0
-WORKDIR /overlay
-COPY root/ ./
-COPY .editorconfig /
-RUN find . -type f | xargs shellcheck -e SC1008
-RUN shfmt -d .
-
 FROM bfren/alpine-s6:alpine3.18.5-5.1.0
 LABEL maintainer="Vishnu Rajeevan <github@vishnu.email>"
 
