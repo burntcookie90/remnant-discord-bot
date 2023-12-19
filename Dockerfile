@@ -28,4 +28,4 @@ WORKDIR /app
 COPY scripts/run.sh ./
 COPY --from=build /app/build/install/remnant-discord-bot ./
 
-ENTRYPOINT ["/app/run.sh"]
+CMD /app/run.sh
