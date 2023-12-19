@@ -11,7 +11,7 @@ COPY src ./src
 
 RUN ./gradlew installDist
 
-FROM bfren/alpine-s6:alpine3.18.5-5.1.0
+FROM alpine:3.19.0
 LABEL maintainer="Vishnu Rajeevan <github@vishnu.email>"
 
 RUN apk add --no-cache \
@@ -22,12 +22,10 @@ RUN apk add --no-cache \
 
 ENV \
     # Fail if cont-init scripts exit with non-zero code.
-    S6_BEHAVIOUR_IF_STAGE2_FAILS=2 \
-    PUID="" \
-    PGID="" \
     DISCORD_TOKEN=""
 
-COPY root/cont-init.d /etc/
-COPY root/services.d /etc/
 WORKDIR /app
+COPY scripts/run.sh ./
 COPY --from=build /app/build/install/remnant-discord-bot ./
+
+ENTRYPOINT ["run.sh"]
