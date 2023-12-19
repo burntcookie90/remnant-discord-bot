@@ -1,0 +1,64 @@
+CREATE VIRTUAL TABLE item USING FTS5(
+  name TEXT PRIMARY KEY NOT NULL,
+  description TEXT NOT NULL,
+  iconURL TEXT,
+  linkURL TEXT NOT NULL,
+  tags TEXT
+);
+
+insertItem:
+INSERT INTO item(name, description, iconURL, linkURL, tags)
+ VALUES (?, ?, ?, ?, ?);
+
+itemCount:
+SELECT COUNT(*) FROM item;
+
+findItemByName:
+SELECT *
+FROM item
+WHERE item MATCH ?
+ORDER BY name;
+
+findRingsByName:
+SELECT *
+FROM item
+WHERE INSTR(LOWER(tags), 'ring')
+AND item MATCH ?
+ORDER BY name;
+
+findAmuletsByName:
+SELECT *
+FROM item
+WHERE INSTR(LOWER(tags), 'amulet')
+AND item MATCH ?
+ORDER BY name;
+
+findModByName:
+SELECT *
+FROM item
+WHERE INSTR(LOWER(tags), 'mod')
+AND item MATCH ?
+ORDER BY name;
+
+findMutatorByName:
+SELECT *
+FROM item
+WHERE INSTR(LOWER(tags), 'mutator')
+AND item MATCH ?
+ORDER BY name;
+
+getRings:
+SELECT *
+FROM item
+WHERE INSTR(LOWER(tags), 'ring');
+
+getAmulets:
+SELECT *
+FROM item
+WHERE INSTR(LOWER(tags), 'amulet');
+
+getMods:
+SELECT *
+FROM item
+WHERE INSTR(LOWER(tags), 'mod');
+
