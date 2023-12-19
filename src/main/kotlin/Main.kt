@@ -79,13 +79,13 @@ private class Run : DiscordCommand("run", "start server") {
       }
     }
 
-    with(Kord(token= token, builder = { defaultDispatcher = Dispatchers.IO })) {
+    with(Kord(token= token)) {
       ring()
       amulet()
       mod()
       mutator()
       remnant()
-      commandHandler()
+      commandHandler(db)
       login {
         // we need to specify this to receive the content of messages
         @OptIn(PrivilegedIntent::class)

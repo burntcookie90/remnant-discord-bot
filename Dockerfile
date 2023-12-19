@@ -17,6 +17,7 @@ LABEL maintainer="Vishnu Rajeevan <github@vishnu.email>"
 RUN apk add --no-cache \
       curl \
       openjdk17-jre \
+      bash \
  && rm -rf /var/cache/* \
  && mkdir /var/cache/apk
 

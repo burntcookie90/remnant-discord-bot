@@ -3,5 +3,7 @@ services:
   bot:
     build:
       context: .
+    environment:
+      - DISCORD_TOKEN=MTE4NjE0NTQ0NTU1MTAyNjIyOA.GILJ1E.DtZWu87jbyO_kc107_9cdR-85G_jqIoJj3HPBY
     volumes:
-      - ./run/app:/app/data
+      - /mnt/runtime/appdata/remnant-discord-bot:/app/data
