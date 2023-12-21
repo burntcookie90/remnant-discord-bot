@@ -1,8 +1,7 @@
 version: '3'
 services:
   bot:
-    build:
-      context: .
+    image: ghcr.io/burntcookie90/remnant-discord-bot:latest
     environment:
       - DISCORD_TOKEN=
     volumes:
