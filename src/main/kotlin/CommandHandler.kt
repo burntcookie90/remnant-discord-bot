@@ -19,7 +19,6 @@ suspend fun Kord.commandHandler(db: Database) {
     val response = interaction.deferPublicResponse()
     val command = interaction.command
     val query = "\"${command.strings[QUERY]!!.replace(" ", "+")}\""
-    println(query)
     val mapper: (name: String, description: String, iconURL: String?, linkURL: String, tags: String?) -> UiItem =
       { name, description, iconURL, linkURL, tags ->
         UiItem(
@@ -42,7 +41,6 @@ suspend fun Kord.commandHandler(db: Database) {
         .asFlow()
         .mapToList(Dispatchers.IO)
         .first()
-    println(items.size)
     val interactionResponse = response.respond {
       embed {
         title = ":white_check_mark: Found:"
