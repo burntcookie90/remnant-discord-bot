@@ -8,11 +8,9 @@ import dev.kord.core.Kord
 import dev.kord.core.behavior.interaction.response.respond
 import dev.kord.core.event.interaction.ChatInputCommandInteractionCreateEvent
 import dev.kord.core.on
-import dev.kord.rest.builder.message.actionRow
 import dev.kord.rest.builder.message.embed
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
-import java.util.*
 
 suspend fun Kord.commandHandler(db: Database) {
   on<ChatInputCommandInteractionCreateEvent> {
@@ -41,22 +39,18 @@ suspend fun Kord.commandHandler(db: Database) {
         .asFlow()
         .mapToList(Dispatchers.IO)
         .first()
-    val interactionResponse = response.respond {
+    response.respond {
       embed {
-        title = ":white_check_mark: Found:"
-        description = "Here's what we found!"
         if (items.isEmpty()) {
-          field {
-            name = "None found!"
-          }
+          title = ":no_entry: None found!"
         }
         else if (items.size > 20) {
-          field {
-            name = "Too many results"
-            value = "Reduce search scope!"
-          }
+          title = ":warning: Too many results"
+          description = "Reduce search scope!"
         }
         else {
+          title = ":white_check_mark: Found:"
+          description = "Here's what we found!"
           items
             .forEach {
               val emoji = when {
