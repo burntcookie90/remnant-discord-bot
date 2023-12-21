@@ -16,7 +16,8 @@ suspend fun Kord.commandHandler(db: Database) {
   on<ChatInputCommandInteractionCreateEvent> {
     val response = interaction.deferPublicResponse()
     val command = interaction.command
-    val query = command.strings[QUERY]!!.replace(" ", "+")
+    val query = "\"${command.strings[QUERY]!!.replace(" ", "+")}\""
+    println(query)
     response.respond {
       embed {
         title = ":white_check_mark: Found:"
