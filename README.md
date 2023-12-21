@@ -12,3 +12,5 @@ Search for items in Remnant 2.
 /relic
 /remnant // searches everything!
 ```
+
+Data sourced from: https://github.com/olegbl/remnant2browser
