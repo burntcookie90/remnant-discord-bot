@@ -85,6 +85,7 @@ private class Run : DiscordCommand("run", "start server") {
       mod()
       mutator()
       remnant()
+      relic()
       commandHandler(db)
       login {
         // we need to specify this to receive the content of messages

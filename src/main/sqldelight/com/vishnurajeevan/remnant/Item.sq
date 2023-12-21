@@ -47,6 +47,13 @@ WHERE INSTR(LOWER(tags), 'mutator')
 AND item MATCH ?
 ORDER BY name;
 
+findRelicByName:
+SELECT *
+FROM item
+WHERE INSTR(LOWER(tags), 'relic')
+AND item MATCH ?
+ORDER BY name;
+
 getRings:
 SELECT *
 FROM item

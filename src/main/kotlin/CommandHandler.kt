@@ -33,6 +33,7 @@ suspend fun Kord.commandHandler(db: Database) {
         "amulet" -> db.itemQueries.findAmuletsByName(query, mapper)
         "mod" -> db.itemQueries.findModByName(query, mapper)
         "mutator" -> db.itemQueries.findMutatorByName(query, mapper)
+        "relic" -> db.itemQueries.findRelicByName(query, mapper)
         "remnant" -> db.itemQueries.findItemByName(query, mapper)
         else -> error("unhandled!")
       }
@@ -58,6 +59,7 @@ suspend fun Kord.commandHandler(db: Database) {
                 it.tags.lowercase().contains("amulet") -> ":prayer_beads:"
                 it.tags.lowercase().contains("mod") -> ":gear:"
                 it.tags.lowercase().contains("mutator") -> ":electric_plug:"
+                it.tags.lowercase().contains("relic") -> ":anatomical_heart:"
                 else -> ""
               }
               field {
