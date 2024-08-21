@@ -1,3 +1,10 @@
+FROM satantime/puppeteer-node AS scrape
+WORKDIR /app
+RUN git clone https://github.com/burntcookie90/remnant2browser.git
+WORKDIR /app/remnant2browser
+RUN yarn install
+RUN npm run scrape
+
 FROM --platform=linux/amd64 eclipse-temurin:17-alpine AS build
 ENV GRADLE_OPTS="-Dorg.gradle.daemon=false -Dkotlin.incremental=false"
 WORKDIR /app
