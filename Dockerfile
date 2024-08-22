@@ -1,4 +1,4 @@
-FROM satantime/puppeteer-node AS scrape
+FROM ghcr.io/puppeteer/puppeteer:latest AS scrape
 WORKDIR /app
 RUN git clone https://github.com/burntcookie90/remnant2browser.git
 WORKDIR /app/remnant2browser
@@ -15,6 +15,8 @@ RUN ./gradlew --version
 
 COPY build.gradle.kts ./
 COPY src ./src
+
+COPY --from=scrape /app/remnant2browser/src/data.json ./src/resources/db.json
 
 RUN ./gradlew installDist
 
