@@ -21,7 +21,7 @@ dependencies {
     implementation("org.slf4j:slf4j-simple:2.0.16")
     implementation("dev.kord:kord-core:0.12.0")
     implementation("app.cash.sqldelight:sqlite-driver:2.0.1")
-    implementation("app.cash.sqldelight:coroutines-extensions:2.0.1")
+    implementation("app.cash.sqldelight:coroutines-extensions:2.0.2")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.2")
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 }
