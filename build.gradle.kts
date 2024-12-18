@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.9.21"
+    kotlin("jvm") version "2.1.0"
     id("app.cash.sqldelight") version "2.0.1"
     kotlin("plugin.serialization") version "1.9.21"
     application
