@@ -17,7 +17,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.ajalt.clikt:clikt:4.4.0")
+    implementation("com.github.ajalt.clikt:clikt:5.0.2")
     implementation("org.slf4j:slf4j-simple:2.0.16")
     implementation("dev.kord:kord-core:0.15.0")
     implementation("app.cash.sqldelight:sqlite-driver:2.0.2")
