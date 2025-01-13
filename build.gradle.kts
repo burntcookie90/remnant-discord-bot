@@ -22,7 +22,7 @@ dependencies {
     implementation("dev.kord:kord-core:0.15.0")
     implementation("app.cash.sqldelight:sqlite-driver:2.0.2")
     implementation("app.cash.sqldelight:coroutines-extensions:2.0.2")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.0")
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 }
 
