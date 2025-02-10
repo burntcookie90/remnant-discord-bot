@@ -5,12 +5,25 @@
 
 version: 2
 updates:
+  - package-ecosystem: "github-actions" # See documentation for possible values
+    directory: "/" # Location of package manifests
+    schedule:
+      interval: "weekly"
   - package-ecosystem: "gradle" # See documentation for possible values
     directory: "" # Location of package manifests
     schedule:
       interval: "weekly"
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      # Check for updates to GitHub Actions every week
-      interval: "weekly"
+    registries: "*"
+    open-pull-requests-limit: 15
+    groups:
+      kotlin:
+        patterns:
+          - "org.jetbrains.kotlin:*"
+          - "org.jetbrains.kotlin"
+          - "com.google.devtools.ksp"
+          - "de.jensklingenberg.ktorfit"
+registries:
+  maven-google:
+    type: "maven-repository"
+    url: "https://maven.google.com"
+    replaces-base: true
